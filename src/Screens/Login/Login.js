@@ -1,21 +1,26 @@
-import { Image, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
 import React, { useState } from 'react'
-import WrapperContainer from '../../Components/WrapperContainer'
-import TextInputComp from '../../Components/TextInputComp'
+import { Image, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
 import ButtonComp from '../../Components/ButtonComp'
+import HeaderComp from '../../Components/HeaderComp'
 import TextComp from '../../Components/TextComp'
-import { moderateScale, moderateScaleVertical, textScale } from '../../styles/responsiveSize'
+import TextInputComp from '../../Components/TextInputComp'
+import WrapperContainer from '../../Components/WrapperContainer'
+import navigationStrings from '../../Navigations/navigationStrings'
+import imagePath from '../../constants/imagePath'
+import strings from '../../constants/lang'
+import { saveUserData } from '../../redux/reducers/auth'
+import store from '../../redux/store'
 import FontFamily from '../../styles/FontFamily'
 import { custom_Colors } from '../../styles/colors'
-import imagePath from '../../constants/imagePath'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import HeaderComp from '../../Components/HeaderComp'
-import navigationStrings from '../../Navigations/navigationStrings'
+import { moderateScale, moderateScaleVertical, textScale } from '../../styles/responsiveSize'
+
 const Login = ({ navigation }) => {
+
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
     const [secureText, setSecureText] = useState(true)
 
+    const { dispatch } = store
 
     return (
         <WrapperContainer >
@@ -25,58 +30,67 @@ const Login = ({ navigation }) => {
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             >
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                    <View style={{ flex: 1 }} >
-
-                        <View style={{ flex: 0.8, }}>
+                    {/* <KeyboardAwareScrollView
+                bounces={true}
+                height={150}
+                style={{
+                    padding: moderateScale(16)
+                }}
+                showsVerticalScrollIndicator={false}
+            > */}
+                    <View style={{ flex: 1 }}>
+                        <View style={{ flex: 0.7 }}>
                             <TextComp
-                                text={'Welcome back to'}
-                                style={{ marginTop: moderateScaleVertical(60), fontSize: textScale(30), fontFamily: FontFamily.Poppins_Bold, color: custom_Colors.blackOpacity60 }}
+                                text={strings.WELCOME_BACK}
+                                style={styles.welcome}
                             />
                             <Image source={imagePath.CYGLoginLogo} style={styles.LogoStyle} />
                             <TextComp
-                                text={'I am a fan of ContactYourGuide and a member traveler'}
-                                style={{ marginVertical: moderateScaleVertical(30), fontSize: textScale(18), fontFamily: FontFamily.semiBold, color: custom_Colors.blackColor }}
+                                text={strings.CONTINUE_OUR_APP}
+                                style={styles.member}
                             />
                             <TextInputComp
-                                placeholder='Email'
+                                placeholder={strings.EMAIL}
                                 onChangeText={(val) => setEmail(val)}
                                 value={Email}
-                                inputStyle={{ marginTop: 15 }}
+                                inputStyle={{ marginTop: moderateScaleVertical(20), width: '98%', alignSelf: 'center' }}
                                 Img={true}
                                 source={imagePath.MailIc}
-                                ImgStyle={{ marginRight: moderateScale(5) }}
+                                ImgStyle={{ marginRight: moderateScaleVertical(5) }}
                             />
                             <TextInputComp
-                                placeholder='Password'
+                                placeholder={strings.PASSWORD}
                                 onChangeText={(val) => setPassword(val)}
                                 value={Password}
                                 secureTextEntry={secureText}
-                                secureText={secureText ? 'Show' : 'Hide'}
+                                secureText={secureText ? strings.SHOW : strings.HIDE}
                                 onPressSecure={() => setSecureText(!secureText)}
+                                inputStyle={{ width: '98%', alignSelf: 'center' }}
                                 Img={true}
                                 source={imagePath.LockIc}
-                                ImgStyle={{ marginRight: moderateScale(5) }}
+                                ImgStyle={{ marginRight: moderateScaleVertical(5) }}
                             />
                             <TextComp
-                                text={'Forget Password?'}
-                                style={{ marginTop: moderateScaleVertical(5), fontSize: textScale(16), fontFamily: FontFamily.semiBold, color: custom_Colors.blueColor, textAlign: 'right' }}
-                                onPress={() => navigation.navigate(navigationStrings.GET_START)}
+                                text={strings.FORGOT_PASSWORD}
+                                style={styles.forget}
+                                onPress={() => navigation.navigate(navigationStrings.OTP_VERIFICATION)}
                             />
                             <TextComp
-                                onPress={() => navigation.navigate(navigationStrings.SIGNUP)}
-                                text={'Register As a Travel'}
-                                style={{ marginTop: moderateScaleVertical(40), fontSize: textScale(18), fontFamily: FontFamily.semiBold, color: custom_Colors.themeColor, textAlign: 'center' }}
 
-                            />
+                                text={strings.REGISTER_AS_TRAVELER}
+                                style={styles.register}
+                            ><Text onPress={() => navigation.navigate(navigationStrings.SIGNUP)} style={{ color: custom_Colors.themeColor }}>{strings.SIGN_UP}</Text></TextComp>
                         </View>
-
-                        <View style={{ flex: 0.2, justifyContent: 'flex-end', marginBottom: moderateScaleVertical(16) }}
-                        >
+                        <View style={{ flex: 0.3, marginBottom: moderateScaleVertical(10), justifyContent: 'flex-end' }}>
                             <ButtonComp
-                                text={'LOGIN'}
+                                text={strings.LOGIN}
+                                onPress={() => dispatch(saveUserData(true))}
                             />
                         </View>
                     </View>
+
+
+                    {/* </KeyboardAwareScrollView> */}
                 </TouchableWithoutFeedback>
             </KeyboardAvoidingView>
         </WrapperContainer>
@@ -87,8 +101,38 @@ export default Login
 
 const styles = StyleSheet.create({
     LogoStyle: {
-        // resizeMode: 'contain',
         width: moderateScale(200),
         height: moderateScale(40),
+        alignSelf: 'center'
+    },
+    welcome: {
+        marginTop: moderateScaleVertical(50),
+        fontSize: textScale(28),
+        fontFamily: FontFamily.Poppins_Bold,
+        color: custom_Colors.blackColor
+    },
+    member: {
+        marginVertical: moderateScaleVertical(30),
+        fontSize: textScale(16),
+        fontFamily: FontFamily.Poppins_Regular,
+        color: custom_Colors.blackColor
+    },
+    forget: {
+        fontSize: textScale(12),
+        fontFamily: FontFamily.Poppins_SemiBold,
+        color: custom_Colors.blueColor,
+        textAlign: 'right'
+    },
+    register: {
+        marginTop: moderateScaleVertical(40),
+        fontSize: textScale(12),
+        fontFamily: FontFamily.Poppins_SemiBold,
+        color: custom_Colors.blackColor,
+        textAlign: 'center'
+    },
+    flexBottom: {
+        flex: 0.2,
+        justifyContent: 'flex-end',
+        marginBottom: moderateScaleVertical(16),
     }
 })

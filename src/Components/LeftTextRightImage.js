@@ -1,10 +1,11 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import fontFamily from '../styles/fontFamily';
-import colors from '../styles/colors';
-import { moderateScaleVertical, textScale } from '../styles/responsiveSize';
+import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import imagePath from '../constants/imagePath';
+import { custom_Colors } from '../styles/colors';
+import { moderateScaleVertical, textScale } from '../styles/responsiveSize';
+import FontFamily from '../styles/FontFamily';
+
 
 // create a component
 const LeftTextRightImage = ({
@@ -21,9 +22,9 @@ const LeftTextRightImage = ({
         >
             <Text style={{
                 ...styles.langTextStyle,
-                color: isSelected ? colors.redColor : colors.blackColor
+                color: isSelected ? custom_Colors.redColor : custom_Colors.blackColor
             }}>{text}</Text>
-            <Image style={{ tintColor: isSelected  ? colors.redColor : colors.gray2 }} source={image} />
+            <Image style={{ tintColor: isSelected ? custom_Colors.redColor : custom_Colors.gray2 }} source={image} />
         </TouchableOpacity>
     );
 };
@@ -31,8 +32,8 @@ const LeftTextRightImage = ({
 // define your styles
 const styles = StyleSheet.create({
     langTextStyle: {
-        fontFamily: fontFamily.semiBold,
-        color: colors.blackColor,
+        fontFamily: FontFamily.semiBold,
+        color: custom_Colors.blackColor,
         fontSize: textScale(14),
         textTransform: 'capitalize',
         marginVertical: moderateScaleVertical(8)

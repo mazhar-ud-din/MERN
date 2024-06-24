@@ -1,7 +1,7 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, useColorScheme, StatusBar } from 'react-native';
-import colors, { custom_Colors } from '../styles/colors';
+import React from 'react';
+import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
+import { custom_Colors } from '../styles/colors';
 // import { useSelector } from 'react-redux';
 
 // create a component
@@ -17,7 +17,7 @@ const WrapperContainer = ({
             ...style,
             // backgroundColor: selectedTheme == 'dark' ? colors.themeColor : colors.whiteColor
         }}>
-            {/* <StatusBar barStyle={selectedTheme == 'dark' ? 'light-content' : 'dark-content'} /> */}
+            <StatusBar barStyle={'light-content'} backgroundColor={custom_Colors.themeColor}/>
             <SafeAreaView style={{ flex: 1 }}>
                 {children}
             </SafeAreaView>

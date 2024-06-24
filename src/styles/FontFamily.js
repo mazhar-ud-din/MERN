@@ -1,7 +1,6 @@
 export default {
-    regular: 'Barlow-Regular',
-    bold: 'Barlow-Bold',
+    Poppins_Regular: 'Poppins-Regular',
     Poppins_Bold: 'Poppins-Bold',
-    medium: 'Barlow-Medium',
-    semiBold: 'Barlow-SemiBold',
+    Poppins_Medium: 'Poppins-Medium',
+    Poppins_SemiBold: 'Poppins-SemiBold',
 }

@@ -44,11 +44,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: moderateScale(16)
     },
     textStyle: {
-        fontFamily: FontFamily.medium,
+        fontFamily: FontFamily.Poppins_Medium,
         color: custom_Colors.whiteColor,
         fontSize: textScale(16)
     }
 });
 
-//make this component available to the app
 export default ButtonComp;

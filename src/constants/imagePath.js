@@ -5,6 +5,21 @@ export default {
   CYGLoginLogo: require('../assets/images/CYGLogin.png'),
   MailIc: require('../assets/images/mail.png'),
   LockIc: require('../assets/images/padlock.png'),
+  UserIc: require('../assets/images/person.png'),
+  CountryIc: require('../assets/images/country.png'),
+  PhoneIc: require('../assets/images/phone.png'),
+  ChatIc: require('../assets/images/chat.png'),
+  MessageIc: require('../assets/images/message.png'),
+  CalenderIc: require('../assets/images/calendar.png'),
+  NotificationIc: require('../assets/images/ic_notify.png'),
+  DestinationImg: require('../assets/images/destination.png'),
+
+
+
+
+
+
+
 
 
 

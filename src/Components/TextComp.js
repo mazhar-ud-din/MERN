@@ -1,40 +1,33 @@
-//import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import fontFamily from '../styles/fontFamily';
-import colors, { custom_Colors } from '../styles/colors';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { StyleSheet, Text } from 'react-native';
+import { custom_Colors } from '../styles/colors';
 import { textScale } from '../styles/responsiveSize';
+import FontFamily from '../styles/FontFamily';
 
-// create a component
+
 const TextComp = ({
     text = '',
     style = {},
     children,
     ...props
 }) => {
-    // const {selectedTheme} = useSelector(state => state?.appSetting)
-
     return (
-            <Text 
-
+        <Text
             style={{
-                ...styles.textStyle, 
-                // color: selectedTheme == 'dark'? colors.whiteColor: colors.blackColor,
+                ...styles.textStyle,
                 ...style,
-        
             }}
             {...props}
-            >{text} {children}</Text>
+        >{text} {children}</Text>
     );
 };
 
 const styles = StyleSheet.create({
     textStyle: {
-        fontFamily: fontFamily.regular,
+        fontFamily: FontFamily.Poppins_Regular,
         color: custom_Colors.blackColor,
-        fontSize:textScale(12),
-        textAlign:'left'
+        fontSize: textScale(12),
+        textAlign: 'left'
     },
 });
 

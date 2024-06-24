@@ -1,24 +1,34 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { InitialScreen } from './src/Screens/Index'
-import SplashScreen from './src/Screens/SplashScreen/SplashScreen'
+import { StyleSheet } from 'react-native'
+import { Provider } from 'react-redux'
 import Routes from './src/Navigations/Routes'
+import SplashScreen from './src/Screens/SplashScreen/SplashScreen'
+import store from './src/redux/store'
 
 const App = () => {
 
   const [SplashTimer, setSplashTimer] = useState(true)
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setSplashTimer(false);
-    }, 2000); 
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <>{
-      SplashTimer ? <SplashScreen /> : <Routes />
-    }
+    <>
+      <Provider store={store}>
+        {
+          SplashTimer ? <SplashScreen /> : <Routes />
+        }
+
+        {/* <FlashMessage
+          position={'top'}
+          titleStyle={{
+            fontFamily: fontFamily.medium,
+            fontSize: textScale(14)
+          }} /> */}
+      </Provider>
     </>
   )
 }

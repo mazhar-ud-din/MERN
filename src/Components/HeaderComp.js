@@ -1,13 +1,13 @@
 //import liraries
-import React, { Component, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { moderateScale, textScale } from '../styles/responsiveSize';
-import imagePath from '../constants/imagePath';
 import { useNavigation } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
-import TextComp from './TextComp';
-import fontFamily from '../styles/fontFamily';
+import React from 'react';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import imagePath from '../constants/imagePath';
 import { custom_Colors } from '../styles/colors';
+import { moderateScale, textScale } from '../styles/responsiveSize';
+import TextComp from './TextComp';
+import FontFamily from '../styles/FontFamily';
+
 
 // create a component
 const HeaderComp = ({
@@ -18,7 +18,8 @@ const HeaderComp = ({
     rightTextStyle = {},
     rightText = '',
     onPressRight = () => { },
-    rightImage = null
+    rightImage = null,
+    LeftTextStyle
 }) => {
     const navigation = useNavigation()
     // const { selectedTheme } = useSelector(state => state?.appSetting)
@@ -36,7 +37,7 @@ const HeaderComp = ({
                     <Image style={{ tintColor: custom_Colors.blackColor }} source={imagePath.icBack} />
                 </TouchableOpacity> : null}
 
-                {!!leftText ? <TextComp style={styles.textStyle} text={leftText} /> : null}
+                {!!leftText ? <TextComp style={{ ...styles.LeftTextStyle, ...LeftTextStyle }} text={leftText} /> : null}
             </View>
 
             {!!rightText ?
@@ -50,7 +51,7 @@ const HeaderComp = ({
                 <TouchableOpacity
                     onPress={onPressRight}
                 >
-                    <Image style={{ tintColor: custom_Colors.blackColor }} source={rightImage} />
+                    <Image style={{ tintColor: custom_Colors.blackColor, width: moderateScale(25), height: moderateScale(25) }} source={rightImage} />
                 </TouchableOpacity> : null}
 
         </View>
@@ -68,9 +69,11 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         fontSize: textScale(16),
-        fontFamily: fontFamily.medium,
-
-
+        fontFamily: FontFamily.medium,
+    },
+    LeftTextStyle: {
+        fontSize: textScale(20),
+        fontFamily: FontFamily.semiBold,
     }
 });
 

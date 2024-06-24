@@ -47,7 +47,6 @@ const TextInputComp = ({
     );
 };
 
-// define your styles
 const styles = StyleSheet.create({
     inputStyle: {
         height: moderateScale(52),
@@ -58,15 +57,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: custom_Colors.whiteColor,
         marginBottom: moderateScaleVertical(16),
-        elevation: 8,
+        elevation: 5,
     },
     textStyle: {
-        fontSize: textScale(14),
-        fontFamily: FontFamily.regular,
+        fontSize: textScale(12),
+        fontFamily: FontFamily.Poppins_Regular,
         flex: 1,
         color: custom_Colors.blackColor
     },
-    ImgStyle: { tintColor: custom_Colors.blackOpacity70, width: 25, height: 25 }
+    ImgStyle: {
+        tintColor: custom_Colors.blackOpacity70,
+        width: moderateScale(25),
+        height: moderateScale(25)
+    }
 });
 
 //make this component available to the app

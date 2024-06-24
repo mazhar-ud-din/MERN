@@ -4,24 +4,18 @@ import * as React from 'react';
 import { Text } from 'react-native';
 import AuthStack from './AuthStack';
 import MainStack from './MainStack';
-
+import { useSelector } from 'react-redux';
 
 const Stack = createNativeStackNavigator();
 
-
-
-
 export default function Routes() {
-
-
+  const { userData } = useSelector(state => state?.auth);
+  console.log(`userData`, !!userData)
   return (
     <NavigationContainer >
       <Stack.Navigator>
-        {AuthStack(Stack)}
-        {/* {!!userData?.token ?  MainStack(Stack):AuthStack(Stack)}      */}
-
+        {!userData ? AuthStack(Stack) : MainStack(Stack)}
       </Stack.Navigator>
-
     </NavigationContainer>
   );
 }

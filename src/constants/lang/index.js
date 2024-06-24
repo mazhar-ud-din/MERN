@@ -1,10 +1,9 @@
 import LocalizedStrings from 'react-native-localization';
 import en from "./en";
-import ar from './ar';
+import tr from './tr'
 
 let strings = new LocalizedStrings({
     en,
-    ar
+    tr
 })
-
 export default strings;

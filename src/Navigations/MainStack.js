@@ -1,24 +1,16 @@
 import React from "react";
-import navigationStrings from "./navigationStrings";
 import TabRoutes from './TabRoutes';
-import { InitialScreen } from "../Screens/Index";
+import navigationStrings from "./navigationStrings";
 
 export default function (Stack) {
     return (
         <>
             <Stack.Screen
-                name={navigationStrings.GET_START}
-                component={InitialScreen}
-                options={{ headerShown: false }}
-
-            />
-            {/* 
-            <Stack.Screen
                 name={navigationStrings.TAB_ROUTES}
                 component={TabRoutes}
                 options={{ headerShown: false }}
 
-            /> */}
+            />
 
             {/* <Stack.Screen
                 name={navigationStrings.LINKS}

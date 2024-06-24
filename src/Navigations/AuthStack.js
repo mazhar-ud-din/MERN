@@ -1,6 +1,6 @@
 import React from "react";
 import navigationStrings from "./navigationStrings";
-import { InitialScreen, Login, Signup } from "../Screens/Index";
+import { InitialScreen, Login, Otp, Signup } from "../Screens/Index";
 
 export default function (Stack) {
     return (
@@ -20,6 +20,12 @@ export default function (Stack) {
                 component={Signup}
                 options={{ headerShown: false }}
             />
+             <Stack.Screen
+                name={navigationStrings.OTP_VERIFICATION}
+                component={Otp}
+                options={{ headerShown: false }}
+            />
+
 
             {/* <Stack.Screen
                 name={navigationStrings.LOGIN}

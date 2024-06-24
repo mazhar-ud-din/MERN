@@ -1,11 +1,12 @@
+import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
-import colors from '../styles/colors';
 import { Image, StyleSheet } from 'react-native';
 
+import { CreatePost, Home, Notification, Profile, Search } from '../Screens/Index';
 import imagePath from '../constants/imagePath';
 import navigationStrings from './navigationStrings';
-import { InitialScreen } from '../Screens/Index';
+import { moderateScale } from '../styles/responsiveSize';
+
 
 
 const BottomTab = createBottomTabNavigator();
@@ -24,42 +25,42 @@ const TabRoutes = (props) => {
             screenOptions={{
                 headerShown: false,
                 style: styles.customBottomtabsStyle,
-                tabBarActiveTintColor: colors.blackColor,
+                tabBarActiveTintColor: 'black',
                 tabBarInactiveTintColor: 'gray',
-                tabBarStyle: { backgroundColor: colors.themeColor },
+                tabBarStyle: { backgroundColor: '#1FB970' },
                 tabBarShowLabel: false
             }}
 
         >
             <BottomTab.Screen
                 name={navigationStrings.HOME}
-                component={InitialScreen}
+                component={Home}
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (
-                            <Image style={{ tintColor: focused ? colors.redColor : colors.whiteColor }} source={imagePath.firstInActiveIcon} />
+                            <Image style={{ tintColor: focused ? 'black' : 'white' }} source={imagePath.firstInActiveIcon} />
                         );
                     },
                 }}
             />
-            {/* <BottomTab.Screen
+            <BottomTab.Screen
                 name={navigationStrings.SEARCH}
-                component={Screens.Search}
+                component={Search}
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (
-                            <Image style={{ tintColor: focused ? colors.redColor : colors.whiteColor }} source={imagePath.secondInActiveIcon} />
+                            <Image style={{ tintColor: focused ? 'black' : 'white',width:moderateScale(25) , height:moderateScale(25) }} source={imagePath.CalenderIc}  />
                         );
                     },
                 }}
             />
             <BottomTab.Screen
                 name={navigationStrings.CREATE_POST}
-                component={Screens.CreatePost}
+                component={CreatePost}
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (
-                            <Image style={{ tintColor: focused ? colors.redColor : colors.whiteColor }} source={imagePath.thirdActiveIcon} />
+                            <Image style={{ tintColor: focused ? 'black' : 'white' }} source={imagePath.secondActiveIcon} />
                         );
                     },
                     unmountOnBlur: true
@@ -67,26 +68,26 @@ const TabRoutes = (props) => {
             />
             <BottomTab.Screen
                 name={navigationStrings.NOTIFICATION}
-                component={Screens.Notification}
+                component={Notification}
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (
-                            <Image style={{ tintColor: focused ? colors.redColor : colors.whiteColor }} source={imagePath.fourthActiveIcon} />
+                            <Image style={{ tintColor: focused ? 'black' : 'white',width:22 , height:22 }} source={imagePath.MessageIc} />
                         );
                     },
                 }}
             />
             <BottomTab.Screen
                 name={navigationStrings.PROFILE}
-                component={Screens.Profile}
+                component={Profile}
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (
-                            <Image style={{ tintColor: focused ? colors.redColor : colors.whiteColor }} source={imagePath.fifthActiveIcon} />
+                            <Image style={{ tintColor: focused ? 'black' : 'white' }} source={imagePath.fifthActiveIcon} />
                         );
                     },
                 }}
-            /> */}
+            />
 
         </BottomTab.Navigator>
     );
@@ -94,7 +95,6 @@ const TabRoutes = (props) => {
 
 const styles = StyleSheet.create({
     customBottomtabsStyle: {
-        //height: moderateScale(60)
         backgroundColor: 'red'
     },
 

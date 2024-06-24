@@ -2,9 +2,10 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { moderateScale, moderateScaleVertical, textScale } from '../styles/responsiveSize';
-import fontFamily from '../styles/fontFamily';
 import colors from '../styles/colors';
 import { useSelector } from 'react-redux';
+import FontFamily from '../styles/FontFamily';
+
 
 // create a component
 const MultiTextInput = ({
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         fontSize: textScale(14),
-        fontFamily: fontFamily.regular,
+        fontFamily: FontFamily.regular,
         flex: 1,
         color: colors.whiteColor
     }
