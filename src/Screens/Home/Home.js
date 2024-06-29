@@ -1,17 +1,14 @@
 import { FlashList } from '@shopify/flash-list'
 import React, { useCallback, useState } from 'react'
-import { Image, Pressable, Text, TouchableOpacity, View } from 'react-native'
-import FastImageComp from '../../Components/FastImageComp'
-import HeaderComp from '../../Components/HeaderComp'
+import { Alert, Image, Text, TouchableOpacity, View } from 'react-native'
 import TextComp from '../../Components/TextComp'
 import WrapperContainer from '../../Components/WrapperContainer'
-import navigationStrings from '../../Navigations/navigationStrings'
 import imagePath from '../../constants/imagePath'
+import FontFamily from '../../styles/FontFamily'
 import { custom_Colors } from '../../styles/colors'
 import { moderateScale, moderateScaleVertical, textScale } from '../../styles/responsiveSize'
 import styles from './styles'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import FontFamily from '../../styles/FontFamily'
+import navigationStrings from '../../Navigations/navigationStrings'
 
 const Home = ({ navigation }) => {
     const [posts, setPosts] = useState([
@@ -19,35 +16,61 @@ const Home = ({ navigation }) => {
     ])
     const renderItem = useCallback(({ item, index }) => {
         return (
-
-            <View style={{
-                 ...styles.boxStyle, 
-                 flexDirection: "row", 
-                 alignItems: 'center', 
-                 justifyContent: 'space-between',
-                 marginBottom:moderateScaleVertical(10)
-
-                  }}>
-                <View style={{ flexDirection: "row", alignItems: 'center', flex: 1 }}>
-                    <Image source={imagePath.DestinationImg}/>
-                    {/* <FastImageComp
-                        url={imagePath.DestinationImg}
-                        imageStyle={styles.profileImage}
-                    /> */}
+            <TouchableOpacity onPress={() => navigation.navigate(navigationStrings.TOURFEATURES)}>
+                <View style={styles.boxStyle}>
+                    <View style={styles.ImgContainer}>
+                        <Image source={imagePath.DestinationImg} />
+                    </View>
+                    <View style={styles.TextCard}>
+                        <TextComp
+                            text={'Turkey'}
+                            style={{
+                                fontFamily: FontFamily.Poppins_Regular,
+                                fontSize: textScale(16)
+                            }}
+                        />
+                        <View style={styles.TextCardLeft}>
+                            <Image source={imagePath.icHeart} />
+                            <TextComp
+                                text={'4.7'}
+                                style={{
+                                    fontFamily: FontFamily.Poppins_Regular,
+                                    fontSize: textScale(16)
+                                }}
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.BottomCardContainer}>
+                        <View style={styles.BottomCardLeft} >
+                            <Image
+                                source={imagePath.LocationIc}
+                                style={styles.BottomLeftImg} />
+                            <TextComp
+                                text={'Tekergate,Sunamang'}
+                                style={{
+                                    fontFamily: FontFamily.Poppins_Regular,
+                                    fontSize: textScale(16)
+                                }}
+                            />
+                        </View>
+                        <View style={styles.BottomCardLeft}>
+                            <Image
+                                source={imagePath.UserIc}
+                                style={styles.BottomLeftImg} />
+                            <Image
+                                source={imagePath.UserIc}
+                                style={styles.BottomLeftImg} />
+                        </View>
+                    </View>
                 </View>
-                <TouchableOpacity
-                    activeOpacity={0.7}
-                >
-                    <Image source={imagePath.icDots} />
-                </TouchableOpacity>
-            </View>
+            </TouchableOpacity>
 
         )
     }, [posts])
 
     const listEmptyComp = () => {
         return (
-            <View style={{ alignItems: "center", marginTop: 24 }}>
+            <View style={styles.ListEmptyContainer}>
                 <TextComp
                     text='No data found'
                     style={{
@@ -59,28 +82,19 @@ const Home = ({ navigation }) => {
     }
     return (
         <WrapperContainer>
-            <View style={{ flex: 1, padding: moderateScale(16) }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <View style={{
-                        flexDirection: 'row',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        paddingVertical: 3,
-                        borderRadius: 15,
-                        paddingHorizontal: 10,
-                        backgroundColor: custom_Colors.blackOpacity10
-                    }}>
-                        <Image source={imagePath.UserIc} style={{ width: 30, height: 30, tintColor: custom_Colors.blackColor }} />
+            <View style={styles.container}>
+                <View style={styles.subContainer}>
+                    <View style={styles.LeftHeader}>
+                        <Image source={imagePath.UserIc} style={styles.LeftImg} />
                         <TextComp
                             text={'Mazhar ud din'}
-                            style={{ fontSize: textScale(14), marginTop: moderateScaleVertical(5) }}
+                            style={{
+                                fontSize: textScale(14),
+                                marginTop: moderateScaleVertical(5)
+                            }}
                         />
                     </View>
-                    <View style={{
-                        padding: 10,
-                        borderRadius: moderateScale(20),
-                        backgroundColor: custom_Colors.blackOpacity10
-                    }}>
+                    <View style={styles.rightHeader}>
                         <Image source={imagePath.NotificationIc} style={{ tintColor: custom_Colors.blackColor }} />
                     </View>
                 </View>
@@ -89,7 +103,7 @@ const Home = ({ navigation }) => {
                     style={{
                         fontSize: textScale(30),
                         fontFamily: FontFamily.Poppins_Regular,
-                        marginTop: moderateScaleVertical(28)
+                        marginTop: moderateScaleVertical(40)
                     }}
                 />
                 <TextComp text={'Beautiful'}
@@ -102,6 +116,25 @@ const Home = ({ navigation }) => {
                 }}>
                         World!</Text>
                 </TextComp>
+                <View style={styles.Destination}>
+                    <TextComp
+                        text={'Best Destination'}
+                        style={{
+                            fontSize: textScale(20),
+                            fontFamily: FontFamily.Poppins_Regular,
+                            marginVertical: moderateScale(28),
+                        }}
+                    />
+                    <TextComp
+                        text={'View all'}
+                        onPress={() => Alert.alert('Coming Soon')}
+                        style={{
+                            color: custom_Colors.blueColor,
+                            fontSize: textScale(14),
+                            fontFamily: FontFamily.Poppins_Regular,
+                        }}
+                    />
+                </View>
                 <FlashList
                     data={posts}
                     renderItem={renderItem}
@@ -109,6 +142,8 @@ const Home = ({ navigation }) => {
                     ItemSeparatorComponent={() => <View style={{ height: moderateScale(20) }} />}
                     ListEmptyComponent={listEmptyComp}
                     horizontal
+                    contentContainerStyle={{}}
+                    showsHorizontalScrollIndicator={false}
                 />
             </View>
         </WrapperContainer>

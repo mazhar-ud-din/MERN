@@ -1,4 +1,3 @@
-//import liraries
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
@@ -8,8 +7,6 @@ import { moderateScale, textScale } from '../styles/responsiveSize';
 import TextComp from './TextComp';
 import FontFamily from '../styles/FontFamily';
 
-
-// create a component
 const HeaderComp = ({
     onPressLeft,
     leftText = '',
@@ -19,41 +16,37 @@ const HeaderComp = ({
     rightText = '',
     onPressRight = () => { },
     rightImage = null,
-    LeftTextStyle
+    LeftTextStyle,
+    centerText,
+    centerTextStyle,
+    rightStyle
 }) => {
     const navigation = useNavigation()
-    // const { selectedTheme } = useSelector(state => state?.appSetting)
-
-
 
     return (
         <View style={{ ...styles.container, ...style }}>
-
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
                 {isLeftImage ? <TouchableOpacity
                     style={{ marginRight: moderateScale(16) }}
                     onPress={!!onPressLeft ? onPressLeft : () => navigation.goBack()}
                 >
                     <Image style={{ tintColor: custom_Colors.blackColor }} source={imagePath.icBack} />
                 </TouchableOpacity> : null}
-
                 {!!leftText ? <TextComp style={{ ...styles.LeftTextStyle, ...LeftTextStyle }} text={leftText} /> : null}
             </View>
-
+            {!!centerText ? <TextComp style={{ ...styles.centerTextStyle, ...centerTextStyle }} text={centerText} /> : null}
             {!!rightText ?
                 <TouchableOpacity
                     onPress={onPressRight}
                 >
                     <TextComp style={{ ...styles.textStyle, ...rightTextStyle }}>{rightText}</TextComp>
                 </TouchableOpacity> : null}
-
             {!!rightImage ?
                 <TouchableOpacity
                     onPress={onPressRight}
                 >
-                    <Image style={{ tintColor: custom_Colors.blackColor, width: moderateScale(25), height: moderateScale(25) }} source={rightImage} />
+                    <Image style={{ ...styles.rightStyle, ...rightStyle }} source={rightImage} />
                 </TouchableOpacity> : null}
-
         </View>
     );
 };
@@ -69,13 +62,17 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         fontSize: textScale(16),
-        fontFamily: FontFamily.medium,
+        fontFamily: FontFamily.Poppins_Medium,
     },
     LeftTextStyle: {
         fontSize: textScale(20),
-        fontFamily: FontFamily.semiBold,
-    }
+        fontFamily: FontFamily.Poppins_SemiBold,
+    },
+    centerTextStyle: {
+        fontSize: textScale(18),
+        fontFamily: FontFamily.Poppins_SemiBold,
+    },
+    rightStyle: { tintColor: custom_Colors.themeColor, width: 22, height: 22 }
 });
 
-//make this component available to the app
 export default HeaderComp;

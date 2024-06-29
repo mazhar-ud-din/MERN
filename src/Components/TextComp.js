@@ -8,6 +8,7 @@ import FontFamily from '../styles/FontFamily';
 const TextComp = ({
     text = '',
     style = {},
+    onPress,
     children,
     ...props
 }) => {
@@ -18,6 +19,7 @@ const TextComp = ({
                 ...style,
             }}
             {...props}
+            onPress={onPress}
         >{text} {children}</Text>
     );
 };

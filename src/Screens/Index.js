@@ -8,6 +8,11 @@ export { default as Profile } from '../Screens/Profile/Profile'
 export { default as CreatePost } from '../Screens/CreatePost/CreatePost'
 export { default as Notification } from '../Screens/Notification/Notification'
 export { default as Search } from '../Screens/Search/Search'
+export { default as TourFeatures } from '../Screens/TourFeatures/TourFeatures'
+export { default as EditProfile } from '../Screens/EditProfile/EditProfile'
+export { default as GuideProfile } from '../Screens/GuideProfile/GuideProfile'
+
+
 
 
 

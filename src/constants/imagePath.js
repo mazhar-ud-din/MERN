@@ -13,6 +13,27 @@ export default {
   CalenderIc: require('../assets/images/calendar.png'),
   NotificationIc: require('../assets/images/ic_notify.png'),
   DestinationImg: require('../assets/images/destination.png'),
+  LocationIc: require('../assets/images/location.png'),
+  EditIc: require('../assets/images/edits.png'),
+  ProfileImg: require('../assets/images/profile.jpeg'),
+  ProfileIc: require('../assets/images/user.png'),
+  ForwardIc: require('../assets/images/forward_arrow.png'),
+  SettingIc: require('../assets/images/setting.png'),
+  BookMarkIc: require('../assets/images/book-mark.png'),
+  TripsIc: require('../assets/images/worldwide.png'),
+  VersionIc: require('../assets/images/version.png'),
+  TickIc: require('../assets/images/tick.png'),
+  CrossIc: require('../assets/images/close.png'),
+
+
+
+
+
+
+
+
+
+
 
 
 
