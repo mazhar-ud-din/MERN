@@ -21,6 +21,10 @@ const EditProfile = ({ navigation }) => {
         }}
       />
 
+
+
+
+
       <View style={{ margin: moderateScale(16) }}>
         <Image
           source={imagePath.ProfileImg}
