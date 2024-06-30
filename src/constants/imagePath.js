@@ -24,6 +24,12 @@ export default {
   VersionIc: require('../assets/images/version.png'),
   TickIc: require('../assets/images/tick.png'),
   CrossIc: require('../assets/images/close.png'),
+  DotIc: require('../assets/images/3dots.png'),
+  NewEditIc: require('../assets/images/editing.png'),
+  SearchIc: require('../assets/images/Search.png'),
+
+
+
 
 
 

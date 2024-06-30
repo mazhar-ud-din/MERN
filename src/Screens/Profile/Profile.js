@@ -18,8 +18,6 @@ const Profile = ({ navigation }) => {
                 centerText={'Profile'}
                 onPressRight={() => navigation.navigate(navigationStrings.PROFILE_EDIT)}
             />
-
-            
             <Image
                 source={imagePath.ProfileImg}
                 style={styles.profileStyle} />

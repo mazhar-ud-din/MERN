@@ -49,7 +49,7 @@ const TabRoutes = (props) => {
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (
-                            <Image style={{ tintColor: focused ? 'black' : 'white',width:moderateScale(25) , height:moderateScale(25) }} source={imagePath.CalenderIc}  />
+                            <Image style={{ tintColor: focused ? 'black' : 'white', width: moderateScale(25), height: moderateScale(25) }} source={imagePath.CalenderIc} />
                         );
                     },
                 }}
@@ -72,7 +72,7 @@ const TabRoutes = (props) => {
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (
-                            <Image style={{ tintColor: focused ? 'black' : 'white',width:22 , height:22 }} source={imagePath.MessageIc} />
+                            <Image style={{ tintColor: focused ? 'black' : 'white', width: 22, height: 22 }} source={imagePath.MessageIc} />
                         );
                     },
                 }}

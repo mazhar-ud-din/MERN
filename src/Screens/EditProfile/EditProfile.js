@@ -20,11 +20,6 @@ const EditProfile = ({ navigation }) => {
           color: custom_Colors.themeColor
         }}
       />
-
-
-
-
-
       <View style={{ margin: moderateScale(16) }}>
         <Image
           source={imagePath.ProfileImg}
