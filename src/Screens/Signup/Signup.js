@@ -29,15 +29,15 @@ const Signup = ({ navigation }) => {
                 showsVerticalScrollIndicator={false}
             >
                 <HeaderComp />
-                <View style={{ margin: moderateScale(16) }}>
+                <View style={styles.container}>
                     <TextComp
                         text={strings.SIGN_UP_NOW}
-                        style={{ marginTop: moderateScaleVertical(30), marginBottom: moderateScaleVertical(12), fontSize: textScale(28), fontFamily: FontFamily.Poppins_Bold, color: custom_Colors.blackColor }}
+                        style={styles.SignText}
                     />
                     <Image source={imagePath.CYGLoginLogo} style={styles.LogoStyle} />
                     <TextComp
                         text={strings.FILL_DETAILS_SIGNUP}
-                        style={{ marginVertical: moderateScaleVertical(20), fontSize: textScale(16), fontFamily: FontFamily.semiBold, color: custom_Colors.blackColor }}
+                        style={styles.desStyle}
                     />
                     <TextInputComp
                         placeholder={strings.FIRST_NAME}
@@ -46,7 +46,7 @@ const Signup = ({ navigation }) => {
                         inputStyle={{ marginTop: moderateScale(15) }}
                         Img={true}
                         source={imagePath.UserIc}
-                        ImgStyle={{ marginRight: moderateScale(5) }}
+                        ImgStyle={styles.imageRight}
                     />
                     <TextInputComp
                         placeholder={strings.MIDDLE_NAME}
@@ -54,7 +54,7 @@ const Signup = ({ navigation }) => {
                         value={MName}
                         Img={true}
                         source={imagePath.UserIc}
-                        ImgStyle={{ marginRight: moderateScale(5) }}
+                        ImgStyle={styles.imageRight}
                     />
                     <TextInputComp
                         placeholder={strings.LAST_NAME}
@@ -62,7 +62,7 @@ const Signup = ({ navigation }) => {
                         value={LName}
                         Img={true}
                         source={imagePath.UserIc}
-                        ImgStyle={{ marginRight: moderateScale(5) }}
+                        ImgStyle={styles.imageRight}
                     />
                     <TextInputComp
                         placeholder={strings.EMAIL}
@@ -70,7 +70,7 @@ const Signup = ({ navigation }) => {
                         value={Email}
                         Img={true}
                         source={imagePath.MailIc}
-                        ImgStyle={{ marginRight: moderateScale(5) }}
+                        ImgStyle={styles.imageRight}
                     />
                     <TextInputComp
                         placeholder={strings.SELECT_COUNTRY}
@@ -78,7 +78,7 @@ const Signup = ({ navigation }) => {
                         value={Country}
                         Img={true}
                         source={imagePath.CountryIc}
-                        ImgStyle={{ marginRight: moderateScale(5) }}
+                        ImgStyle={styles.imageRight}
                     />
                     <TextInputComp
                         placeholder={strings.PHONE_NO}
@@ -86,7 +86,7 @@ const Signup = ({ navigation }) => {
                         value={PhoneNO}
                         Img={true}
                         source={imagePath.PhoneIc}
-                        ImgStyle={{ marginRight: moderateScale(5) }}
+                        ImgStyle={styles.imageRight}
                     />
                     <ButtonComp
                         text={strings.NEXT}
@@ -102,10 +102,29 @@ const Signup = ({ navigation }) => {
 export default Signup
 
 const styles = StyleSheet.create({
+    container: {
+        margin: moderateScale(16)
+    },
     LogoStyle: {
         width: moderateScale(200),
         height: moderateScale(40),
         alignSelf: 'center'
-
+    },
+    SignText: {
+        textAlign: 'center',
+        marginTop: moderateScaleVertical(30),
+        marginBottom: moderateScaleVertical(12),
+        fontSize: textScale(28),
+        fontFamily: FontFamily.Poppins_Bold,
+        color: custom_Colors.blackOpacity70,
+    },
+    desStyle: {
+        marginVertical: moderateScaleVertical(20),
+        fontSize: textScale(14),
+        fontFamily: FontFamily.semiBold,
+        color: custom_Colors.blackColor
+    },
+    imageRight: {
+        marginRight: moderateScaleVertical(5)
     }
 })

@@ -3,12 +3,13 @@ import React, { useCallback, useState } from 'react'
 import { Alert, Image, Text, TouchableOpacity, View } from 'react-native'
 import TextComp from '../../Components/TextComp'
 import WrapperContainer from '../../Components/WrapperContainer'
+import navigationStrings from '../../Navigations/navigationStrings'
 import imagePath from '../../constants/imagePath'
 import FontFamily from '../../styles/FontFamily'
 import { custom_Colors } from '../../styles/colors'
 import { moderateScale, moderateScaleVertical, textScale } from '../../styles/responsiveSize'
 import styles from './styles'
-import navigationStrings from '../../Navigations/navigationStrings'
+import { Rating } from 'react-native-ratings'
 
 const Home = ({ navigation }) => {
     const [posts, setPosts] = useState([
@@ -16,7 +17,7 @@ const Home = ({ navigation }) => {
     ])
     const renderItem = useCallback(({ item, index }) => {
         return (
-            <TouchableOpacity onPress={() => navigation.navigate(navigationStrings.TOURFEATURES)}>
+            <TouchableOpacity onPress={() => navigation.navigate(navigationStrings.TOURFEATURES)} activeOpacity={0}>
                 <View style={styles.boxStyle}>
                     <View style={styles.ImgContainer}>
                         <Image source={imagePath.DestinationImg} />
@@ -30,12 +31,19 @@ const Home = ({ navigation }) => {
                             }}
                         />
                         <View style={styles.TextCardLeft}>
-                            <Image source={imagePath.icHeart} />
+                            <Rating
+                                type='star'
+                                ratingCount={5}
+                                imageSize={10}
+                                startingValue={5}
+                            // showRating
+                            // onFinishRating={ratingCompleted}
+                            />
                             <TextComp
                                 text={'4.7'}
                                 style={{
                                     fontFamily: FontFamily.Poppins_Regular,
-                                    fontSize: textScale(16)
+                                    fontSize: textScale(16),
                                 }}
                             />
                         </View>

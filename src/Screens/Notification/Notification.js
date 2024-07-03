@@ -1,37 +1,19 @@
-import { useEffect, useState } from 'react'
 import { Image, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
-import { GiftedChat } from 'react-native-gifted-chat'
-import WrapperContainer from '../../Components/WrapperContainer'
-import TextComp from '../../Components/TextComp'
 import HeaderComp from '../../Components/HeaderComp'
-import { custom_Colors } from '../../styles/colors'
+import TextComp from '../../Components/TextComp'
+import WrapperContainer from '../../Components/WrapperContainer'
+import navigationStrings from '../../Navigations/navigationStrings'
 import imagePath from '../../constants/imagePath'
-import { moderateScale, moderateScaleVertical, textScale } from '../../styles/responsiveSize'
 import FontFamily from '../../styles/FontFamily'
+import { custom_Colors } from '../../styles/colors'
+import { moderateScale, moderateScaleVertical, textScale } from '../../styles/responsiveSize'
 
-const Notification = () => {
-    const [messages, setMessages] = useState([]);
-    useEffect(() => {
-        setMessages([
-            {
-                _id: 1,
-                text: 'Hello developer!',
-                createdAt: new Date(),
-                user: {
-                    _id: 2,
-                    name: 'React Native',
-                    avatar: 'https://placeimg.com/140/140/any',
-                },
-            },
-        ]);
-    }, []);
+const Notification = ({ navigation }) => {
 
-    const onSend = (newMessages = []) => {
-        setMessages((previousMessages) => GiftedChat.append(previousMessages, newMessages));
-    };
     return (
         <WrapperContainer>
             <HeaderComp
+                style={{ marginTop: moderateScaleVertical(5) }}
                 centerText={'Message'}
                 rightImage={imagePath.DotIc}
                 rightStyle={{
@@ -81,6 +63,7 @@ const Notification = () => {
                     />
                 </View>
                 <TouchableOpacity
+                    onPress={() => navigation.navigate(navigationStrings.CHAT_SCREEN)}
                     activeOpacity={0.7}
                     style={{
                         flexDirection: 'row',
@@ -109,7 +92,7 @@ const Notification = () => {
                                 }}
                             />
                             <TextComp
-                                text='Search for chat & messages'
+                                text='Hi, Mazhar how are you?'
                                 style={{
                                     fontSize: textScale(12),
                                     fontFamily: FontFamily.Poppins_Regular,
@@ -128,6 +111,7 @@ const Notification = () => {
                     />
                 </TouchableOpacity>
                 <TouchableOpacity
+                    onPress={() => navigation.navigate(navigationStrings.CHAT_SCREEN)}
                     activeOpacity={0.7}
                     style={{
                         flexDirection: 'row',
@@ -156,7 +140,7 @@ const Notification = () => {
                                 }}
                             />
                             <TextComp
-                                text='Search for chat & messages'
+                                text='Hi, Mazhar how are you?'
                                 style={{
                                     fontSize: textScale(12),
                                     fontFamily: FontFamily.Poppins_Regular,
@@ -175,16 +159,6 @@ const Notification = () => {
                     />
                 </TouchableOpacity>
             </ScrollView>
-
-            {/* <View style={styles.container}>
-                <GiftedChat
-                    messages={messages}
-                    onSend={(messages) => onSend(messages)}
-                    user={{
-                        _id: 1,
-                    }}
-                />
-            </View> */}
         </WrapperContainer>
     )
 }

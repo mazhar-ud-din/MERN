@@ -2,10 +2,10 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import imagePath from '../constants/imagePath';
+import FontFamily from '../styles/FontFamily';
 import { custom_Colors } from '../styles/colors';
 import { moderateScale, textScale } from '../styles/responsiveSize';
 import TextComp from './TextComp';
-import FontFamily from '../styles/FontFamily';
 
 const HeaderComp = ({
     onPressLeft,
@@ -19,20 +19,24 @@ const HeaderComp = ({
     LeftTextStyle,
     centerText,
     centerTextStyle,
-    rightStyle
+    rightStyle,
+    LeftImagStyle
 }) => {
     const navigation = useNavigation()
 
     return (
         <View style={{ ...styles.container, ...style }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
+            <View style={styles.LeftSide}>
                 {isLeftImage ? <TouchableOpacity
-                    style={{ marginRight: moderateScale(16) }}
+                    style={{ ...styles.LeftImagStyle, ...LeftImagStyle }}
                     onPress={!!onPressLeft ? onPressLeft : () => navigation.goBack()}
                 >
-                    <Image style={{ tintColor: custom_Colors.blackColor }} source={imagePath.icBack} />
+                    <Image style={{ tintColor: custom_Colors.blackOpacity60, width: 22, height: 22 }} source={imagePath.BackIc} />
                 </TouchableOpacity> : null}
-                {!!leftText ? <TextComp style={{ ...styles.LeftTextStyle, ...LeftTextStyle }} text={leftText} /> : null}
+                {!!leftText ?
+                    <TextComp style={{ ...styles.LeftTextStyle, ...LeftTextStyle }} text={leftText} />
+
+                    : null}
             </View>
             {!!centerText ? <TextComp style={{ ...styles.centerTextStyle, ...centerTextStyle }} text={centerText} /> : null}
             {!!rightText ?
@@ -51,7 +55,6 @@ const HeaderComp = ({
     );
 };
 
-// define your styles
 const styles = StyleSheet.create({
     container: {
         height: moderateScale(42),
@@ -72,7 +75,22 @@ const styles = StyleSheet.create({
         fontSize: textScale(18),
         fontFamily: FontFamily.Poppins_SemiBold,
     },
-    rightStyle: { tintColor: custom_Colors.themeColor, width: 22, height: 22 }
+    rightStyle: {
+        tintColor: custom_Colors.themeColor,
+        width: 22,
+        height: 22
+    },
+    LeftImagStyle: {
+        marginRight: moderateScale(16),
+        padding: 8,
+        borderRadius: 20,
+        backgroundColor: '#F7F7F9'
+    },
+    LeftSide: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around'
+    }
 });
 
 export default HeaderComp;

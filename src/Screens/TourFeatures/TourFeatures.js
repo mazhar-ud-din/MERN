@@ -1,4 +1,4 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useCallback, useState } from 'react'
 import WrapperContainer from '../../Components/WrapperContainer'
 import TextComp from '../../Components/TextComp'
@@ -9,6 +9,7 @@ import FontFamily from '../../styles/FontFamily'
 import imagePath from '../../constants/imagePath'
 import { FlashList } from '@shopify/flash-list'
 import navigationStrings from '../../Navigations/navigationStrings'
+import { Rating } from 'react-native-ratings'
 
 const TourFeatures = ({ navigation }) => {
     const [posts, setPosts] = useState([
@@ -99,9 +100,14 @@ const TourFeatures = ({ navigation }) => {
                     </View>
                     <View>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <Image
-                                source={imagePath.icHeart}
-                                style={styles.BottomLeftImg} />
+                            <Rating
+                                type='star'
+                                ratingCount={5}
+                                imageSize={10}
+                                startingValue={5}
+                            // showRating
+                            // onFinishRating={ratingCompleted}
+                            />
                             <TextComp
                                 text={'432 (1234)'}
                                 style={{
@@ -365,7 +371,7 @@ const TourFeatures = ({ navigation }) => {
                 left: 0,
                 right: 0,
                 height: moderateScale(75), // Fixed height for the footer
-                backgroundColor: custom_Colors.gray7,
+                backgroundColor: '#F7F7F9',
                 alignItems: 'center',
                 borderTopRightRadius: 30,
                 borderTopLeftRadius: 30,
@@ -379,6 +385,7 @@ const TourFeatures = ({ navigation }) => {
                     }}
                 />
                 <ButtonComp
+                    onPress={() => Alert.alert('Coming Soon')}
                     text='Book Now'
                     style={{
                         width: moderateScale(120),

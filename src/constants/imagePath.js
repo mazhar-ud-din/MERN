@@ -27,6 +27,12 @@ export default {
   DotIc: require('../assets/images/3dots.png'),
   NewEditIc: require('../assets/images/editing.png'),
   SearchIc: require('../assets/images/Search.png'),
+  ChatProfileIc: require('../assets/images/profile3.png'),
+  SendIc: require('../assets/images/send.png'),
+  BackIc: require('../assets/images/chevron.png'),
+
+
+
 
 
 

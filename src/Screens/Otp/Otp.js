@@ -37,9 +37,11 @@ const Otp = ({ navigation }) => {
     };
     return (
         <WrapperContainer>
-            <HeaderComp />
+            <HeaderComp
+                style={styles.Header}
+            />
             <KeyboardAvoidingView
-                style={{ flex: 1, margin: moderateScale(16) }}
+                style={styles.container}
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             >
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -47,8 +49,7 @@ const Otp = ({ navigation }) => {
                         <View style={{ flex: 0.8 }}>
                             <TextComp
                                 text={'OTP Verification'}
-
-                                style={{ marginTop: moderateScaleVertical(40), marginBottom: moderateScaleVertical(12), fontSize: textScale(28), fontFamily: FontFamily.Poppins_Bold, color: custom_Colors.blackColor, textAlign: 'center' }}
+                                style={styles.OTP}
                             />
                             <TextComp style={styles.headerStyle} text={strings.ENTER_6_DIGIT_PASSWORD + ` mazhar123@gmail.com`} />
                             <TextComp onPress={() => navigation.goBack()} style={styles.descStyle} text={'OTP Code'} />
@@ -64,18 +65,12 @@ const Otp = ({ navigation }) => {
                                 offTintColor={custom_Colors.whiteColorOpacity40}
                             />
                         </View>
-                        {/* <View style={{ flex: 0.3, marginBottom: moderateScaleVertical(10), justifyContent: 'flex-end' }}>
-                            <ButtonComp
-                                text={strings.VERIFY}
-                                // onPress={() => dispatch(saveUserData(true))}
-                            />
-                        </View> */}
                     </View>
                 </TouchableWithoutFeedback>
             </KeyboardAvoidingView>
             <ModalComp
                 isVisible={isVisible}
-                style={{ justifyContent: 'flex-end', margin: 0 }}
+                style={styles.modalContainer}
                 onBackdropPress={() => setIsVisible(false)}
             >
                 <View style={styles.modalStyle}>
@@ -120,11 +115,28 @@ const Otp = ({ navigation }) => {
 export default Otp
 
 const styles = StyleSheet.create({
-
+    Header: {
+        marginTop: moderateScaleVertical(5)
+    },
+    container: {
+        flex: 1,
+        margin: moderateScale(16)
+    },
+    OTP: {
+        marginTop: moderateScaleVertical(50),
+        marginBottom: moderateScaleVertical(12),
+        fontSize: textScale(28),
+        fontFamily: FontFamily.Poppins_Bold,
+        color: custom_Colors.blackColor,
+        textAlign: 'center'
+    },
+    modalContainer: {
+        justifyContent: 'flex-end',
+        margin: 0
+    },
     headerStyle: {
-        fontSize: textScale(16),
+        fontSize: textScale(14),
         fontFamily: FontFamily.Poppins_Medium,
-
     },
     descStyle: {
         fontSize: textScale(14),
@@ -139,7 +151,6 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         color: custom_Colors.blackColor,
         elevation: 5,
-        // borderWidth: 1,
         height: 40,
         width: 40
     },

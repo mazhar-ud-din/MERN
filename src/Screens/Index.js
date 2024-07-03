@@ -11,6 +11,8 @@ export { default as Search } from '../Screens/Search/Search'
 export { default as TourFeatures } from '../Screens/TourFeatures/TourFeatures'
 export { default as EditProfile } from '../Screens/EditProfile/EditProfile'
 export { default as GuideProfile } from '../Screens/GuideProfile/GuideProfile'
+export { default as ChatScreen } from '../Screens/ChatScreen/ChatScreen'
+
 
 
 

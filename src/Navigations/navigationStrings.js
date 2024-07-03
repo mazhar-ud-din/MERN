@@ -8,6 +8,9 @@ export default {
     TOURFEATURES: 'TourFeatures',
     PROFILE_EDIT: "profileEdit",
     GUIDE_PROFILE: 'GuideProfile',
+    CHAT_SCREEN: 'ChatScreen',
+
+
     NOTIFICATION: "notification",
     TAB_ROUTES: "tabRouts",
     OTP_VERIFICATION: "otpVerification",
