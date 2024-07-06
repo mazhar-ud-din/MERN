@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, View } from 'react-native'
+import { Alert, Image, StyleSheet, View } from 'react-native'
 import HeaderComp from '../../Components/HeaderComp'
 import ProfileMenu from '../../Components/ProfileMenu'
 import TextComp from '../../Components/TextComp'
@@ -87,26 +87,31 @@ const Profile = ({ navigation }) => {
                 leftImage={imagePath.ProfileIc}
                 text={'Profile'}
                 rightImage={imagePath.ForwardIc}
+                onPress={() => Alert.alert('Coming Soon')}
             />
             <ProfileMenu
                 leftImage={imagePath.BookMarkIc}
                 text={'BookMarked'}
                 rightImage={imagePath.ForwardIc}
+                onPress={() => Alert.alert('Coming Soon')}
             />
             <ProfileMenu
                 leftImage={imagePath.TripsIc}
                 text={'Previous Trips'}
                 rightImage={imagePath.ForwardIc}
+                onPress={() => Alert.alert('Coming Soon')}
             />
             <ProfileMenu
                 leftImage={imagePath.SettingIc}
                 text={'Setting'}
                 rightImage={imagePath.ForwardIc}
+                onPress={() => Alert.alert('Coming Soon')}
             />
             <ProfileMenu
                 leftImage={imagePath.VersionIc}
                 text={'Version'}
                 rightImage={imagePath.ForwardIc}
+                onPress={() => Alert.alert('Coming Soon')}
             />
         </WrapperContainer>
     )

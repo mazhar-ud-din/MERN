@@ -81,6 +81,7 @@ const CreatePost = () => {
       <HeaderComp
         centerText={'Popular Place'}
         rightText
+        style={{marginTop:moderateScaleVertical(5)}}
       />
       <ScrollView style={{ margin: moderateScale(16) }} showsVerticalScrollIndicator={false}>
         <TextComp
@@ -115,7 +116,8 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(8),
     padding: moderateScale(8),
     elevation: 5,
-    margin: moderateScale(8),
+    marginVertical: moderateScale(8),
+    marginHorizontal:moderateScale(15)
   },
   ImgContainer: {
     flexDirection: "row",

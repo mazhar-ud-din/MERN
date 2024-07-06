@@ -97,8 +97,8 @@ const Search = () => {
                     width: 18,
                     height: 18
                 }}
+                style={{marginTop:moderateScaleVertical(5)}}
             />
-
             <View style={styles.container}>
                 <View style={styles.calendarContainer}>
                     <CalendarStrip
@@ -146,7 +146,7 @@ const Search = () => {
                     ItemSeparatorComponent={() => <View style={{ height: moderateScale(20) }} />}
                     ListEmptyComponent={listEmptyComp}
                     contentContainerStyle={{}}
-                    showsHorizontalScrollIndicator={false}
+                  showsVerticalScrollIndicator={false}
                 />
             </ScrollView>
 

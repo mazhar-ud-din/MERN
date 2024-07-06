@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingHorizontal: moderateScale(16)
+        paddingHorizontal: moderateScale(10)
     },
     textStyle: {
         fontSize: textScale(16),
@@ -81,7 +81,6 @@ const styles = StyleSheet.create({
         height: 22
     },
     LeftImagStyle: {
-        marginRight: moderateScale(16),
         padding: 8,
         borderRadius: 20,
         backgroundColor: '#F7F7F9'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, View } from 'react-native'
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native'
 import FontFamily from '../styles/FontFamily'
 import { custom_Colors } from '../styles/colors'
 import { moderateScale, moderateScaleVertical, textScale } from '../styles/responsiveSize'
@@ -8,10 +8,11 @@ import TextComp from './TextComp'
 const ProfileMenu = ({
     leftImage,
     rightImage,
-    text
+    text,
+    onPress
 }) => {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.7}>
             <View style={styles.flexRight}>
                 <Image source={leftImage} style={styles.ImgStyle} />
                 <TextComp
@@ -20,7 +21,7 @@ const ProfileMenu = ({
                 />
             </View>
             <Image source={rightImage} style={styles.imgLeft} />
-        </View>
+        </TouchableOpacity>
     )
 }
 

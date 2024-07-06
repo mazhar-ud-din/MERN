@@ -112,6 +112,7 @@ const GuideProfile = ({ navigation }) => {
                     width: 25,
                     height: 25
                 }}
+                style={{ marginTop: moderateScaleVertical(5) }}
             />
             <ScrollView style={{ margin: moderateScale(16) }} showsVerticalScrollIndicator={false}>
 

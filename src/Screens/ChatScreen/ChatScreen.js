@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { GiftedChat, InputToolbar, Send } from 'react-native-gifted-chat';
+import { Composer, GiftedChat, InputToolbar, Send } from 'react-native-gifted-chat';
 import HeaderComp from '../../Components/HeaderComp';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import { custom_Colors } from '../../styles/colors';
+import FontFamily from '../../styles/FontFamily';
+import { textScale } from '../../styles/responsiveSize';
 
 const ChatScreen = () => {
 
@@ -19,7 +21,7 @@ const ChatScreen = () => {
                 user: {
                     _id: 2,
                     name: 'React Native',
-                    avatar: imagePath.ChatProfileIc,
+                    avatar: imagePath.ProfileImg,
                 },
             },
         ]);
@@ -35,6 +37,13 @@ const ChatScreen = () => {
                 {...props}
                 containerStyle={styles.inputToolbar}
                 primaryStyle={{ alignItems: 'center' }}
+                renderComposer={(composerProps) => (
+                    <Composer
+                        {...composerProps}
+                        textInputStyle={{ fontFamily: FontFamily.Poppins_Regular, fontSize: textScale(14), color: custom_Colors.blackColor }}
+                        placeholderTextColor={custom_Colors.blackOpacity70} // Custom placeholder text color
+                    />
+                )}
             />
         );
     };
