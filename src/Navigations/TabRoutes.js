@@ -1,11 +1,11 @@
 import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { Image, StyleSheet, Text } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
+import TextComp from '../Components/TextComp';
 import { CreatePost, Home, Notification, Profile, Search } from '../Screens/Index';
 import imagePath from '../constants/imagePath';
+import { moderateScale, textScale } from '../styles/responsiveSize';
 import navigationStrings from './navigationStrings';
-import { moderateScale, moderateScaleVertical, textScale } from '../styles/responsiveSize';
-import TextComp from '../Components/TextComp';
 
 
 const BottomTab = createBottomTabNavigator();

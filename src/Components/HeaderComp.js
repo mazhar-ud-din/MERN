@@ -19,8 +19,7 @@ const HeaderComp = ({
     LeftTextStyle,
     centerText,
     centerTextStyle,
-    rightStyle,
-    LeftImagStyle
+    rightStyle,LeftImagStyle
 }) => {
     const navigation = useNavigation()
 
@@ -29,26 +28,19 @@ const HeaderComp = ({
             <View style={styles.LeftSide}>
                 {isLeftImage ? <TouchableOpacity
                     style={{ ...styles.LeftImagStyle, ...LeftImagStyle }}
-                    onPress={!!onPressLeft ? onPressLeft : () => navigation.goBack()}
-                >
+                    onPress={!!onPressLeft ? onPressLeft : () => navigation.goBack()}>
                     <Image style={{ tintColor: custom_Colors.blackOpacity60, width: 22, height: 22 }} source={imagePath.BackIc} />
                 </TouchableOpacity> : null}
-                {!!leftText ?
-                    <TextComp style={{ ...styles.LeftTextStyle, ...LeftTextStyle }} text={leftText} />
-
-                    : null}
+                {!!leftText ? <TextComp style={{ ...styles.LeftTextStyle, ...LeftTextStyle }} text={leftText} /> : null}
             </View>
             {!!centerText ? <TextComp style={{ ...styles.centerTextStyle, ...centerTextStyle }} text={centerText} /> : null}
             {!!rightText ?
                 <TouchableOpacity
-                    onPress={onPressRight}
-                >
+                    onPress={onPressRight}>
                     <TextComp style={{ ...styles.textStyle, ...rightTextStyle }}>{rightText}</TextComp>
                 </TouchableOpacity> : null}
             {!!rightImage ?
-                <TouchableOpacity
-                    onPress={onPressRight}
-                >
+                <TouchableOpacity onPress={onPressRight} >
                     <Image style={{ ...styles.rightStyle, ...rightStyle }} source={rightImage} />
                 </TouchableOpacity> : null}
         </View>
